@@ -1,0 +1,22 @@
+{
+    "name": "peterboorsma/plasticsun",
+    "description": "A simple portfolio theme based on Foundation 6",
+    "type": "bolt-theme",
+    "keywords": ["theme", "portfolio", "foundation", "sass"],
+    "require": {
+        "bolt/bolt": "^3.0"
+    },
+    "license": "CC BY-SA",
+    "authors": [
+        {
+            "name": "Peter Boorsma",
+            "email": "peter@boors.ma"
+        }
+    ],
+    "extra": {
+        "bolt-screenshots": [
+            "screenshots/home.png",
+            "screenshots/splash.png"
+        ]
+    }
+}

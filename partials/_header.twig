@@ -1,0 +1,34 @@
+{# A full screen header for the frontpage #}
+{% if app.request.get('_route') == "homepage" %}
+
+<div class="siteheader large">
+    <header>
+        <div class="siteheader-content fade-in">
+            <h1>{{ app.config.get('general/sitename') }}</h1>
+
+            <h2>{{ app.config.get('general/payoff') }}</h2>
+        </div>
+    </header>
+</div>
+
+{# A small header for all other pages #}
+{% else %}
+
+<div class="siteheader small">
+    <header>
+        <div class="siteheader-content fade-in">
+            <h1><a href="/">{{ app.config.get('general/sitename') }}</a></h1>
+        </div>
+    </header>
+</div>
+
+{% endif %}
+
+
+{# #####
+
+OPTIONAL:
+You can also use a "medium" siteheader by simply changing the small or large classnames in
+<div class="siteheader">
+
+##### #}

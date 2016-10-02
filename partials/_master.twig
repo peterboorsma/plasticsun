@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="{{ htmllang() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>
+            {% if app.request.get('_route') == "homepage" %}
+                {{ app.config.get('general/sitename') }} - {{ app.config.get('general/payoff') }}
+            {% elseif record.title is defined %}
+                {{ record.title|striptags }} - {{ app.config.get('general/sitename') }}
+            {% elseif record.title is not defined and app.config.get('general/payoff') %} - {{ app.config.get('general/payoff') }}
+            {% endif %}
+        </title>
+
+        {#{{ include('partials/_seo.twig') }}#}
+
+        <link rel="stylesheet" href="{{ paths.theme }}css/app.css">
+    </head>
+
+    <body{% if app.request.get('_route') == "homepage" %} class="frontpage"{% endif %}>
+
+        {% block body %}
+            {{ include('partials/_header.twig') }}
+            {{ include('partials/_nav.twig') }}
+
+            <div class="main-content" id="foo">
+            {% block main %}
+            {% endblock main %}
+            </div>
+
+            {{ include('partials/_footer.twig') }}
+        {% endblock body %}
+
+        <script src="{{ paths.theme }}js/jquery-2.2.4.min.js"></script>
+        <script src="{{ paths.theme }}js/app.min.js"></script>
+
+    </body>
+</html>

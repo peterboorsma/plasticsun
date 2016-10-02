@@ -1,0 +1,34 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+
+<section class="listing-wrapper">
+    <div class="row">
+        <div class="small-12 columns">
+            <h1>Portfolio</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for record in records %}
+        <div class="small-6 medium-3 columns">
+            <div class="panel">
+                <a href="{{ record.link }}">
+                    <div class="mediacontainer">
+                         <img src="{{ thumbnail(record.image, 270, 270) }}" alt="{{ record.title }}">
+
+                        <div class="mediacontainer-overlay fade-in">
+                            <p>{{ record.title }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{{ include('partials/_section_about.twig') }}
+
+{% endblock main %}

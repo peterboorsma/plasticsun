@@ -1,0 +1,32 @@
+{% extends 'partials/_master.twig' %}
+
+{% block main %}
+
+<div class="item-wrapper">
+    <div class="row">
+        <div class="small-10 small-centered columns">
+            <h1>{{ record.title }}</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-10 small-centered columns">
+
+            <div class="introduction">
+                {{ record.teaser }}
+            </div>
+
+            <div class="bodytext">
+                {{ record.body }}
+            </div>
+
+                {#
+                <div class="mediacontainer">
+                     <img src="{{ thumbnail(record.image, 270, 270) }}" alt="{{ record.title }}">
+                </div>
+                #}
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

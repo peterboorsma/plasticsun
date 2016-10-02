@@ -1,0 +1,55 @@
+
+{# description #}
+{% if record.teaser is not empty %}
+<meta name="description" content="{{ record.teaser|trimtext(154) }}" />
+{% elseif record.body is not empty %}
+<meta name="description" content="{{ record.body|trimtext(154) }}" />
+{% else %}
+<meta name="description" content="{{ app.config.get('general/payoff') }}" />
+{% endif %}
+
+{# tags #}
+{# I don't use this anymore personally #}
+{#
+{% if record.taxonomy.tags is defined %}
+<meta name="keywords" content="{% for tag in record.taxonomy.tags %}{{ tag|replace({'_':' '}) }}, {% endfor %}" />
+{% else %}
+<meta name="keywords" content="{{ app.config.get('general/tags') }}" />
+{% endif %}
+#}
+
+{# #### Open graph stuff #### #}
+
+{# Locale #}
+<meta property="og:locale" content="{{ app.config.get('general/locale') }}" />
+{# Type #}
+<meta property="og:type" content="website" />
+{# Title #}
+<meta property="og:title" content="{% if app.request.get('_route') == "homepage" %}{{ app.config.get('general/sitename') }} - {{ app.config.get('general/payoff') }}{%- elseif record.title is defined %}{{ record.title|striptags }} | {% endif -%}{{ app.config.get('general/sitename') -}}{% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif -%}" />
+{# description #}
+{% if record.teaser is not empty %}
+<meta name="og:description" content="{{ record.teaser|trimtext(154) }}" />
+{% elseif record.body is not empty %}
+<meta name="og:description" content="{{ record.body|trimtext(154) }}" />
+{% else %}
+<meta name="og:description" content="{{ app.config.get('general/payoff') }}" />
+{% endif %}
+{# image #}
+{# ####
+    Add a new item named "siteimage" to your config.yml. The path is relative to your theme folder.
+    Like:
+    ==
+    siteimage: img/name_of_your_image.png
+    ==
+#### #}
+{% if record.image is not empty %}
+<meta property="og:image" content="{{ paths.rooturl }}files/{{ record.image }}" />
+{% else %}
+<meta property="og:image" content="{{ paths.hosturl }}{{ paths.theme }}{{ app.config.get('general/siteimage') }}" />
+{% endif %}
+{# Url #}
+<meta property="og:url" content="{{ paths.canonicalurl }}" />
+{# Sitename #}
+<meta property="og:site_name" content="{{ app.config.get('general/sitename') }}" />
+{# Robots #}
+<meta name="robots" content="index, follow" />

@@ -1,0 +1,15 @@
+<a id="about"></a>
+<section class="about-wrapper">
+    <div class="row">
+        <div class="small-10 small-centered columns">
+            {% setcontent block = 'block/about-me' %}
+            <h2>{{ block.title }}</h2>
+
+            <div class="introduction">
+                {{ block.content }}
+            </div>
+
+            <a class="button small" href="#">Read more</a>
+        </div>
+    </div>
+</section>

@@ -6,7 +6,7 @@
     "require": {
         "bolt/bolt": "^3.0"
     },
-    "license": "CC BY-SA",
+    "license": "MIT",
     "authors": [
         {
             "name": "Peter Boorsma",
@@ -14,9 +14,12 @@
         }
     ],
     "extra": {
-        "bolt-screenshots": [
-            "screenshots/home.png",
-            "screenshots/splash.png"
+         "bolt-icon": "assets/icon.png",
+         "bolt-screenshots": [
+             "assets/teaser.png",
+             "assets/homepage-mobile.png",
+             "assets/homepage-desktop.png",
+             "assets/record-page.png"
         ]
-    }
+     }
 }

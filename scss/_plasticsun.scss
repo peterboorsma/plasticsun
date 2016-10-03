@@ -108,8 +108,57 @@ SITEHEADER
 
 }
 
+
+/*******************************************************************************
+NAVIGATION
+*/
+
 .title-bar {
     width: 100%;
+}
+
+// You can change the settings of all forms in _settings.scss. Below I just alter the search bar
+
+#searchform-inline {
+    margin-top: rem-calc(10); // Rem-calc is a Foundation function. Just add number in pixels. Foundation calculates it to rem
+
+    input[type='search'] {
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom: 1px solid $primary-color;
+        background-color: $black;
+        box-shadow: none;
+        color: $primary-color;
+
+        &:focus {
+            border-left: 1px solid #1A1A1A;
+            border-right: 1px solid #1A1A1A;
+            border-top: 1px solid #1A1A1A;
+        }
+
+    }
+
+    button, .button {
+        background-color: $black;
+        padding: 0 .75rem;
+    }
+
+    svg#icon-search {
+    fill: $primary-color;
+    width: rem-calc(20);
+    height: rem-calc(20);
+    }
+
+}
+
+svg#icon-github {
+    display: inline-block;
+    width: rem-calc(16);
+    height: rem-calc(16);
+    fill: $primary-color;
+    margin-right: .75rem;
+    margin-top: -2px;
 }
 
 /*******************************************************************************

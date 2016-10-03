@@ -6,11 +6,29 @@
                 <li><a href="/entries">Portfolio</a></li>
                 <li><a href="/page/about">About me</a></li>
                 <li><a href="/page/documentation">Documentation</a></li>
+                <li>
+                    <a href="https://github.com/peterboorsma/plasticsun" target="_blank">
+                        {{ include('partials/svg/svg_icon_github.twig') }}Download
+                    </a>
+                </li>
             </ul>
         </div>
 
         <div class="title-bar-right">
-            searchbar
+            <form method="get" action="{{ paths.root }}search" id="searchform-inline" enctype="text/plain">
+                <ul class="menu">
+                    <li>
+                        <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
+                    </li>
+
+                    <li>
+                        <button type="submit" class="button">
+                            {# An inline SVG > icon #}
+                            {{ include('partials/svg/svg_icon_search.twig') }}
+                        </button>
+                    </li>
+                </ul>
+            </form>
         </div>
     </div>
 </div>
